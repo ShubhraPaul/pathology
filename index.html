@@ -2,13 +2,19 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Invoice genrator for a pathology or doctor's clinic</title>
+		<title>Invoice</title>
 		<link rel="stylesheet" href="style.css">
+		<link rel="license" href="http://www.opensource.org/licenses/mit-license/">
 		<script src="script.js"></script>
+		<script src="file.js"></script>
 
 
         <script>
-        var count = localStorage.getItem("count") || 0;
+        var a=readTextFile("info.txt");
+        
+
+        var count = localStorage.getItem("count") || a;
+
 
 		function increase() {
 
@@ -17,9 +23,12 @@
 		    document.getElementById("invoice1").value =  count;
 		    window.location.reload();
 
+
 		};
 
 		function v(){
+
+			
 
 			document.getElementById("invoice1").value =  count;
 
@@ -44,12 +53,30 @@
 	</head>
 	<body onload="v()">
 
+	<!-- The overlay -->
+<div id="myNav" class="overlay">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <a href="javascript:void(0)">SAINATH DIAGNOSTIC CENTER!</a>
+    <BR>
+    
+    <a href="javascript:void(0)" onclick="closeNav()">START!</a>
+  </div>
+
+</div>
+
+
 	<div style="border-style: solid;">
+	<a style="float:right; position:absolute; right:25%;" class='no-print'href="javascript:void(0)" onclick="closeNav()">EXIT!</a>
 		<header>
 			<h1>SAINATH DIAGNOSTIC CENTER</h1>
 			<h2>Shop-10-A, Sagar Kunj Near Beema Kunj Kolar Road Bhopal</h2>
 			<h2>Landline No. :0755-6455299, email: pathology@sainathdiagnostic.in</h2>
-		
+			
 		</header>
 		<article>
 
@@ -157,6 +184,8 @@
 		<button class='no-print' align="center" onclick="window.print();">Print</button> &nbsp;
 		<button class='no-print' align="center" onclick="increase()">New Invoice</button>&nbsp;
 		<button class='no-print' align="center" onclick="window.location.reload();">Reset</button>
+		
+
 
 		</div>
 
@@ -173,13 +202,6 @@
 
 
 </div>
-
-
-
-
-
-
-
 
 
 
