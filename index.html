@@ -11,40 +11,26 @@
         <script>
         var abc=readTextFile("info.txt");
         
-
         var count = localStorage.getItem("count") || abc;
-
-
 		function increase() {
-
 		    count++;
 		    localStorage.setItem("count", count);
 		    document.getElementById("invoice1").value =  count;
 		    window.location.reload();
-
-
 		};
-
 		function v(){
-
 			
-
 			document.getElementById("invoice1").value =  count;
-
-
 			var today = new Date();
 			var dd = today.getDate();
 			var mm = today.getMonth()+1; //January is 0!
 			var yyyy = today.getFullYear();
-
 			if(dd<10) {
 			    dd='0'+dd
 			} 
-
 			if(mm<10) {
 			    mm='0'+mm
 			} 
-
 			today = dd+'/'+mm+'/'+yyyy;
 			document.getElementById("date1").value =  today;
 		}
@@ -53,13 +39,14 @@
 	<body onload="v()">
 
 
-	<div style="border-style: solid;">
-	<a style="float:right; position:absolute; right:25%;" class='no-print' href="javascript:void(0)" onclick="closeNav()">EXIT!</a>
+	<div style="border: 2px solid black;">
+	<a style="float:left; position:absolute; left:25%;" class='no-print' href="javascript:void(0)" onclick="increase()">NEW!</a>
+	<a style="float:right; position:absolute; right:25%;" class='no-print' href="javascript:void(0)" onclick="closeNav()">BACKUP!</a>
 		<header>
-			<h1>SAINATH DIAGNOSTIC CENTER</h1>
+			<h1 style="font-family: 'Times New Roman', Times, serif; text-transform:capitalize; font-size: 120%; padding-bottom: 0px;">Sainath Diagnostic Centre</h1>
 			<h2>Shop-10-A, Sagar Kunj Near Beema Kunj Kolar Road Bhopal</h2>
-			<h2>Landline No. :0755-6455299, email: pathology@sainathdiagnostic.in</h2>
-			
+			<h2>Landline No. :0755-6455299, email: pathology@sainathdiagnostic.in</h2><br>
+			<h2>Invoice cum Cash Receipt</h2>
 		</header>
 		<article>
 
@@ -79,14 +66,14 @@
 			</article>
 		<article>
 			<h1>Recipient</h1>
-			<address >
-			<p><p>Patient Name&nbsp;&nbsp;&nbsp; : <input type=text size="35" autofocus></input>&nbsp;</p></p><br>	
-				<p>Patient Address : <textarea name="Text1" cols="30" rows="5"></textarea> <br></p>
+			<address style="margin-bottom: 0px;" >
+			<p><p style="margin-left:1%;">Patient Name&nbsp;&nbsp;&nbsp; : <input type=text size="28" autofocus></input>&nbsp;</p></p><br>	
+				<p style="margin-left:1%;">Patient Address : <textarea name="Text1" cols="28" rows="3"></textarea> <br></p>
 				
 			</address>
 			<table class="meta">
 				<tbody>
-				
+				</tr>
 				<tr>
 					<th><span >Age/Sex: </span></th>
 					<td><span ><input type="text" id="" style="vertical-align: baseline;;" value=""/></span></td>
@@ -110,9 +97,9 @@
 			<table class="inventory">
 				<thead>
 					<tr>
-						<th><span >S.No.</span></th>
+						<th style="width:30px;"><span >S.No.</span></th>
 						<th><span >Test Name</span></th>
-						<th><span >Price</span></th>
+						<th style="width:100px;"><span >Price</span></th>
 						<th style="display:none;"><span contenteditable="">Quantity</span></th>
 						<th style="display:none;"><span contenteditable="">Price</span></th>
 					</tr>
@@ -139,33 +126,34 @@
 		</article>
 		<aside>
 		
-				 <span style="font-size: 80%;">Amount in words : Rupees </span><span style="text-transform: capitalize;" style="font-size: 80%;"id="bwords"></span>
+				 <span style="font-size: 80%; margin-left:0.8%;" >Amount in words : Rupees </span><span style="text-transform: capitalize; font-size: 80%;" id="bwords" ></span>
 				<hr>
 			<div>
-			<div style="float:left; font-size: 77%;" >	
-				 <br><br><br>
-				 <p>All 7 days working.</p>
-				 <p>Working time morning 6:30 AM to evening 9:30 PM.</p>
-				 <p>Home service also available all over Bhopal.</p>
-				 <p>Phone: 9425651509</p>
+			<div style="float:left;font-size: 77%; width: 250px;" >	
+				 <br>
+				 <p style="margin-left:2%;">All 7 days working.</p>
+				 <p style="margin-left:2%;">Timing: 6:30 AM to 9:30 PM</p>
+				 <p style="margin-left:2%;">Home service vailable all over Bhopal.</p>
+				 <p style="margin-left:2%;">Phone: 9425651509</p>
 			</div>
 			<div style="font-size: 82%;" >
 				
 
 				 <br><br><br><br>
-				 <p align="right">Seal & Sign</p>
+				 <p align="right" style="margin-right:10%;">Seal & Sign</p>
 				 
-			</div>
+			</div
 			</div>
 		</aside>
 		
 
-<br><br>
+<br>
 		<h3 align="center" style="font-size: 70%;"><span >www.sainathdiagnostic.in</span></h3>
+</div>
 
 		<div try >
-		<button class='no-print' align="center" onclick="window.print();">Print</button> &nbsp;
-		<button class='no-print' align="center" onclick="increase()">New Invoice</button>&nbsp;
+		<button class='no-print' align="center" onclick="window.print(); ">Print</button> &nbsp;
+	
 		<button class='no-print' align="center" onclick="window.location.reload();">Reset</button>
 		
 
@@ -173,6 +161,7 @@
 		</div>
 
 		<div>
+		<p class='no-print'>NOTE :  Click on EXIT before closing and replace info.txt file in bin. </p>
 		<p class='no-print'>1. Click on print button to print.</p>
 
 		<p class='no-print'>2. Click on New Invoice button to create new invoice (neccessary to increase Invoice number).</p>
@@ -184,7 +173,6 @@
 		</div>
 
 
-</div>
 
 
 

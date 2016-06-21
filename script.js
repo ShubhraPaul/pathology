@@ -70,7 +70,7 @@ function generateTableRow() {
 
 	emptyColumn.innerHTML = '<td><a class="cut">-</a><span contenteditable></span></td>' +
 		'<td><span contenteditable></span></td>' +
-		'<td><span data-prefix>₹</span><span contenteditable></span></td>' +
+		'<td><span data-prefix>₹</span><span contenteditable> </span></td>' +
 		'<td style="display:none;"><span contenteditable></span></td>' +
 		'<td style="display:none;"><span data-prefix>$</span><span></span></td>';
 
@@ -83,6 +83,19 @@ function parseFloatHTML(element) {
 
 function parsePrice(number) {
 	return number.toFixed(2).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1,');
+}
+
+
+/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    //document.getElementById("myNav").style.width = "0%";
+    download(count, 'info.txt', 'text/plain');
 }
 
 /* Update Number
@@ -125,6 +138,7 @@ function updateInvoice() {
 
 		// add price to total
 		total += price;
+		document.getElementById("bwords").innerHTML = inWords(total);
 
 		// set row total
 		cells[4].innerHTML = price;
@@ -153,7 +167,7 @@ function updateInvoice() {
 
 	for (a = document.querySelectorAll('span[data-prefix] + span'), i = 0; a[i]; ++i) if (document.activeElement != a[i]) a[i].innerHTML = parsePrice(parseFloatHTML(a[i]));
 
-	document.getElementById("bwords").innerHTML = inWords (total);	
+		
 }
 
 /* On Content Load
